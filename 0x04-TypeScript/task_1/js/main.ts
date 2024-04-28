@@ -1,4 +1,4 @@
-interface Teacher {
+export interface Teacher {
   readonly firstName: string;
   readonly lastName: string;
   fullTimeEmployee: boolean;
@@ -11,16 +11,11 @@ interface Director extends Teacher {
   numberOfReports: number;
 }
 
-interface PrintTeacherFunction {
-  (firstName: string, lastName: string): string;
-}
-
-let printTeacher: PrintTeacherFunction;
-printTeacher = function (firstName: string, lastName: string): string {
+function printTeacher(firstName: string, lastName: string) : string {
   return `${firstName[0]}. ${lastName}`;
 }
 
-class StudentClass {
+export class StudentClass {
   firstName: string;
   lastName: string;
 
@@ -33,7 +28,7 @@ class StudentClass {
     return 'Currently working';
   }
 
-  displayName(): string{
+  displayName(): string {
     return this.firstName
   }
 }
