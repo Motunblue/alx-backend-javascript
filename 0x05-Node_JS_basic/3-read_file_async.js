@@ -28,7 +28,7 @@ const countStudents = (path) => new Promise((resolve, reject) => {
         categories[category] = [];
       }
 
-      categories[category].push(student[1].trim());
+      categories[category].push(student[0].trim());
     }
 
     const totalStudents = Object.values(categories).reduce((acc, curr) => acc + curr.length, 0);

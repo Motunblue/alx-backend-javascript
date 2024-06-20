@@ -35,7 +35,7 @@ const countStudents = (path) => {
         categories[category] = [];
       }
 
-      categories[category].push(student[1].trim());
+      categories[category].push(student[0].trim());
     });
 
     rl.on('close', () => {
