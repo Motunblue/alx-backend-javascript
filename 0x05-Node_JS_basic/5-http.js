@@ -56,14 +56,14 @@ app.on('request', (req, res) => {
     res.statusCode = 200;
     res.end('Hello Holberton School!');
   } else if (url === '/students') {
-    const initialMessage = 'This is the list of students';
+    const initialMessage = 'This is the list of our students\n';
 
     countStudents(file).then((val) => {
       res.statusCode = 200;
-      res.end(`${initialMessage}\n${val}`);
-    }).catch(() => {
+      res.end(initialMessage + val);
+    }).catch((err) => {
       res.statusCode = 500;
-      res.end(initialMessage);
+      res.end(initialMessage + err.message);
     });
   } else {
     res.statusCode = 404;
