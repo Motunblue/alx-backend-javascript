@@ -1,4 +1,4 @@
-const app = require('http');
+const app = require('http').createServer();
 const fs = require('fs');
 
 const file = process.argv.length > 2 ? process.argv[2] : '';
@@ -45,10 +45,10 @@ const countStudents = (path) => new Promise((resolve, reject) => {
   });
 });
 
-const hostname = '127.0.0.1';
+const hostname = 'localhost';
 const port = 1245;
 
-const server = app.createServer((req, res) => {
+app.on('request', (req, res) => {
   const { url } = req;
   res.setHeader('Content-Type', 'text/plain');
 
@@ -71,6 +71,6 @@ const server = app.createServer((req, res) => {
   }
 });
 
-server.listen(port, hostname);
+app.listen(port, hostname);
 
 module.exports = app;
